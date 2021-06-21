@@ -18,7 +18,10 @@ class Video_Processor:
     def download_video(self, url, small=None, fps=None):
         try:
             if small:
-                ydl_opts = {"format": "worst", "outtmpl": f"{self.video}/%(title)s.%(ext)s"}
+                ydl_opts = {
+                    "format": "worst",
+                    "outtmpl": f"{self.video}/%(title)s.%(ext)s",
+                }
             else:
                 ydl_opts = {"outtmpl": f"{self.video}/%(title)s.%(ext)s"}
 
@@ -65,7 +68,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("url", help="youtube url")
     parser.add_argument(
-        "-s", "--small", action="store_true", help="download lowest quality video (smaller size video)"
+        "-s",
+        "--small",
+        action="store_true",
+        help="download lowest quality video (smaller size video)",
     )
     parser.add_argument(
         "-f",
